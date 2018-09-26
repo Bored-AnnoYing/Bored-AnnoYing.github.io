@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="//Bored-AnnoYing.github.io">
   <title>原码、反码、补码 | Hot Sauce的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="toc:true  原文：源码，反码，补码：https://blog.csdn.net/hanpengfeijing2010/article/details/3052243原码, 反码, 补码 详解：http://www.cnblogs.com/zhangziqiu/archive/2011/03/30/ComputerCode.html - 张子秋  一、机器数和真值1. 机器数 一个数在计算机">
+  <meta name="description" content="原文：源码，反码，补码：https://blog.csdn.net/hanpengfeijing2010/article/details/3052243原码, 反码, 补码 详解：http://www.cnblogs.com/zhangziqiu/archive/2011/03/30/ComputerCode.html - 张子秋  一、机器数和真值1. 机器数 一个数在计算机中的二进制表示形式">
 <meta name="keywords" content="二进制,存储">
 <meta property="og:type" content="article">
 <meta property="og:title" content="原码、反码、补码">
 <meta property="og:url" content="//Bored-AnnoYing.github.io/2018/09/21/原码、反码、补码/index.html">
 <meta property="og:site_name" content="Hot Sauce的博客">
-<meta property="og:description" content="toc:true  原文：源码，反码，补码：https://blog.csdn.net/hanpengfeijing2010/article/details/3052243原码, 反码, 补码 详解：http://www.cnblogs.com/zhangziqiu/archive/2011/03/30/ComputerCode.html - 张子秋  一、机器数和真值1. 机器数 一个数在计算机">
+<meta property="og:description" content="原文：源码，反码，补码：https://blog.csdn.net/hanpengfeijing2010/article/details/3052243原码, 反码, 补码 详解：http://www.cnblogs.com/zhangziqiu/archive/2011/03/30/ComputerCode.html - 张子秋  一、机器数和真值1. 机器数 一个数在计算机中的二进制表示形式">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-25T09:53:02.000Z">
+<meta property="og:updated_time" content="2018-09-25T12:11:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="原码、反码、补码">
-<meta name="twitter:description" content="toc:true  原文：源码，反码，补码：https://blog.csdn.net/hanpengfeijing2010/article/details/3052243原码, 反码, 补码 详解：http://www.cnblogs.com/zhangziqiu/archive/2011/03/30/ComputerCode.html - 张子秋  一、机器数和真值1. 机器数 一个数在计算机">
+<meta name="twitter:description" content="原文：源码，反码，补码：https://blog.csdn.net/hanpengfeijing2010/article/details/3052243原码, 反码, 补码 详解：http://www.cnblogs.com/zhangziqiu/archive/2011/03/30/ComputerCode.html - 张子秋  一、机器数和真值1. 机器数 一个数在计算机中的二进制表示形式">
   
     <link rel="alternative" href="/atom.xml" title="Hot Sauce的博客" type="application/atom+xml">
   
@@ -159,15 +159,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>toc:true</p>
-<blockquote>
+        <blockquote>
 <p>原文：<br><a href="https://blog.csdn.net/hanpengfeijing2010/article/details/3052243" target="_blank" rel="noopener">源码，反码，补码：https://blog.csdn.net/hanpengfeijing2010/article/details/3052243</a><br><a href="http://www.cnblogs.com/zhangziqiu/archive/2011/03/30/ComputerCode.html" target="_blank" rel="noopener">原码, 反码, 补码 详解：http://www.cnblogs.com/zhangziqiu/archive/2011/03/30/ComputerCode.html</a> - <a href="http://www.cnblogs.com/zhangziqiu/" target="_blank" rel="noopener">张子秋</a></p>
 </blockquote>
 <h2 id="一、机器数和真值"><a href="#一、机器数和真值" class="headerlink" title="一、机器数和真值"></a>一、机器数和真值</h2><h3 id="1-机器数"><a href="#1-机器数" class="headerlink" title="1. 机器数"></a>1. 机器数</h3><blockquote>
 <p>一个数在计算机中的二进制表示形式,  叫做这个数的机器数。机器数是带符号的，在计算机用一个数的最高位存放符号, 正数为0, 负数为1.</p>
 </blockquote>
-<p>比如，十进制中的数 +3 ，计算机字长为8位，转换成二进制就是00000011。如果是 -3 ，就是 10000011 。<br>那么，这里的 00000011 和 10000011 就是机器数。</p>
 <a id="more"></a>
+<p>比如，十进制中的数 +3 ，计算机字长为8位，转换成二进制就是00000011。如果是 -3 ，就是 10000011 。<br>那么，这里的 00000011 和 10000011 就是机器数。</p>
 <h3 id="2-真值"><a href="#2-真值" class="headerlink" title="2. 真值"></a>2. 真值</h3><blockquote>
 <p>因为第一位是符号位，所以机器数的形式值就不等于真正的数值。例如上面的有符号数 10000011，其最高位1代表负，其真正数值是 -3 而不是形式值131（10000011转换成十进制等于131）。所以，为区别起见，将带符号位的机器数对应的真正数值称为机器数的真值。</p>
 </blockquote>
@@ -332,18 +331,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/09/25/位运算/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/09/21/Cmd Markdown 公式指导手册/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          位运算
+          Cmd Markdown 公式指导手册
         
       </div>
     </a>
   
   
-    <a href="/2018/07/24/注解/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">注解</div>
+    <a href="/2018/09/01/JAVA SE 10.x/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JAVA SE 10.x</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -424,6 +423,7 @@ gitment.render('gitment-ctn')
     </div>
   </div>
 </footer>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     </div>
     <script>
 	var yiliaConfig = {
@@ -516,11 +516,135 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">公式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Tutorial</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">命令</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">java se</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">新特性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">RESTful</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Ubuntu16</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RabbitMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gitlab</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Ubuntu 16.04</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu16.03</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">远程控制</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JDK</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DNS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Windows2008R2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jenkins无法登陆</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">配置文件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">自启动</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">二进制</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">位运算</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">IP安全策略</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">屏蔽端口</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Nexus</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">maven仓库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">settings.xml</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -533,6 +657,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Redis</a>
               </li>
             
             <div class="clearfix"></div>
