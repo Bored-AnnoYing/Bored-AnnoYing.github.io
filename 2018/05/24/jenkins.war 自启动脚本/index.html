@@ -169,9 +169,9 @@
 <p><a href="https://blog.csdn.net/fenglailea/article/details/42557751" target="_blank" rel="noopener">centos/ubuntu jenkins.war 自启动脚本,Linux启动停止jar包的运行案例</a><br><a href="http://alanland.iteye.com/blog/2047249" target="_blank" rel="noopener">jenkins 作为 linux的启动项</a></p>
 </blockquote>
 <a id="more"></a>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>! /bin/sh</span><br><span class="line"><span class="meta">#</span> chkconfig: 2345 10 90</span><br><span class="line"><span class="meta">#</span> description: jenkins ....</span><br><span class="line"><span class="meta">#</span> This script will be executed *after* all the other init scripts.  </span><br><span class="line"><span class="meta">#</span> You can put your own initialization stuff in here if you don't  </span><br><span class="line"><span class="meta">#</span> want to do the full Sys V style init stuff.  </span><br><span class="line"><span class="meta">#</span>prefix=/home/lanmps/jenkins</span><br><span class="line"><span class="meta">#</span>nohup $prefix/start_jenkins.sh &gt;&gt; $prefix/jenkins.log 2&gt;&amp;1 &amp;</span><br><span class="line"><span class="meta">#</span>风来了.呆狐狸</span><br><span class="line"></span><br><span class="line">JENKINS_ROOT=/home/lanmps/jenkins</span><br><span class="line">JENKINSFILENAME=jenkins.war</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>停止方法</span><br><span class="line">stop()&#123;</span><br><span class="line">    echo "Stoping $JENKINSFILENAME "</span><br><span class="line">    ps -ef|grep $JENKINSFILENAME |awk '&#123;print $2&#125;'|while read pid</span><br><span class="line">    do</span><br><span class="line">       kill -9 $pid</span><br><span class="line">       echo " $pid kill"</span><br><span class="line">    done</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">case "$1" in</span><br><span class="line">start)</span><br><span class="line">    echo "Starting $JENKINSFILENAME "</span><br><span class="line">    nohup $JENKINS_ROOT/start_jenkins.sh &gt;&gt; $JENKINS_ROOT/jenkins.log 2&gt;&amp;1 &amp;</span><br><span class="line">  ;;</span><br><span class="line">stop)</span><br><span class="line">  stop</span><br><span class="line">  ;;</span><br><span class="line">restart)</span><br><span class="line">  stop</span><br><span class="line">  start</span><br><span class="line">  ;;</span><br><span class="line">status)</span><br><span class="line">  ps -ef|grep $JENKINSFILENAME</span><br><span class="line">  ;;</span><br><span class="line">*)</span><br><span class="line">  printf 'Usage: %s &#123;start|stop|restart|status&#125;\n' "$prog"</span><br><span class="line">  exit 1</span><br><span class="line">  ;;</span><br><span class="line">esac</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">! /bin/sh</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> chkconfig: 2345 10 90</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> description: jenkins ....</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> This script will be executed *after* all the other init scripts.  </span></span><br><span class="line"><span class="meta">#</span><span class="bash"> You can put your own initialization stuff <span class="keyword">in</span> here <span class="keyword">if</span> you don<span class="string">'t  </span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> want to <span class="keyword">do</span> the full Sys V style init stuff.  </span></span><br><span class="line"><span class="meta">#</span><span class="bash">prefix=/home/lanmps/jenkins</span></span><br><span class="line"><span class="meta">#</span><span class="bash">nohup <span class="variable">$prefix</span>/start_jenkins.sh &gt;&gt; <span class="variable">$prefix</span>/jenkins.log 2&gt;&amp;1 &amp;</span></span><br><span class="line"><span class="meta">#</span><span class="bash">风来了.呆狐狸</span></span><br><span class="line"></span><br><span class="line">JENKINS_ROOT=/home/lanmps/jenkins</span><br><span class="line">JENKINSFILENAME=jenkins.war</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">停止方法</span></span><br><span class="line">stop()&#123;</span><br><span class="line">    echo "Stoping $JENKINSFILENAME "</span><br><span class="line">    ps -ef|grep $JENKINSFILENAME |awk '&#123;print $2&#125;'|while read pid</span><br><span class="line">    do</span><br><span class="line">       kill -9 $pid</span><br><span class="line">       echo " $pid kill"</span><br><span class="line">    done</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">case "$1" in</span><br><span class="line">start)</span><br><span class="line">    echo "Starting $JENKINSFILENAME "</span><br><span class="line">    nohup $JENKINS_ROOT/start_jenkins.sh &gt;&gt; $JENKINS_ROOT/jenkins.log 2&gt;&amp;1 &amp;</span><br><span class="line">  ;;</span><br><span class="line">stop)</span><br><span class="line">  stop</span><br><span class="line">  ;;</span><br><span class="line">restart)</span><br><span class="line">  stop</span><br><span class="line">  start</span><br><span class="line">  ;;</span><br><span class="line">status)</span><br><span class="line">  ps -ef|grep $JENKINSFILENAME</span><br><span class="line">  ;;</span><br><span class="line">*)</span><br><span class="line">  printf 'Usage: %s &#123;start|stop|restart|status&#125;\n' "$prog"</span><br><span class="line">  exit 1</span><br><span class="line">  ;;</span><br><span class="line">esac</span><br></pre></td></tr></table></figure>
 <p>保存为jenkins目录下 jenkins.sh<br><strong>JENKINS_ROOT为 jenkins目录</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/bash  </span><br><span class="line">JENKINS_ROOT=/home/lanmps/jenkins  </span><br><span class="line">export JENKINS_HOME=$JENKINS_ROOT/home  </span><br><span class="line">java -jar $JENKINS_ROOT/jenkins.war --httpPort=6700</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash  </span></span><br><span class="line">JENKINS_ROOT=/home/lanmps/jenkins  </span><br><span class="line">export JENKINS_HOME=$JENKINS_ROOT/home  </span><br><span class="line">java -jar $JENKINS_ROOT/jenkins.war --httpPort=6700</span><br></pre></td></tr></table></figure>
 <p>保存为：start_jenkins.sh</p>
 <h3 id="1-centos"><a href="#1-centos" class="headerlink" title="1.centos"></a>1.centos</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ln -s /home/lanmps/jenkins/jenkins.sh /etc/init.d/jenkins  </span><br><span class="line">chkconfig --add jenkins  </span><br><span class="line">chkconfig --level 345 jenkins on</span><br></pre></td></tr></table></figure>
 <p>启动方式<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/jenkins start</span><br></pre></td></tr></table></figure></p>
@@ -456,6 +456,18 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">公式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Tutorial</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
@@ -472,27 +484,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">公式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Tutorial</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">RESTful</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RabbitMQ</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -508,7 +500,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RabbitMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gitlab</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -520,10 +524,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gitlab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JDK</a>
               </li>
              
@@ -532,15 +532,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">DNS</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Windows2008R2</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -557,6 +557,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">配置文件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">pom</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -577,10 +581,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">配置</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pom</a>
               </li>
              
               <li class="article-tag-list-item">

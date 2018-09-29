@@ -167,9 +167,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一-github服务器切换ip后需修改以下配置"><a href="#一-github服务器切换ip后需修改以下配置" class="headerlink" title="一 github服务器切换ip后需修改以下配置"></a>一 github服务器切换ip后需修改以下配置</h2><h3 id="1-修改gitlab-rb中的external-url"><a href="#1-修改gitlab-rb中的external-url" class="headerlink" title="1.修改gitlab.rb中的external_url"></a>1.修改gitlab.rb中的external_url</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/gitlab/gitlab.rb</span><br><span class="line"><span class="meta">#</span> xxx为修改后的ip</span><br><span class="line">external_url 'http://xxx'</span><br></pre></td></tr></table></figure>
+        <h2 id="一-github服务器切换ip后需修改以下配置"><a href="#一-github服务器切换ip后需修改以下配置" class="headerlink" title="一 github服务器切换ip后需修改以下配置"></a>一 github服务器切换ip后需修改以下配置</h2><h3 id="1-修改gitlab-rb中的external-url"><a href="#1-修改gitlab-rb中的external-url" class="headerlink" title="1.修改gitlab.rb中的external_url"></a>1.修改gitlab.rb中的external_url</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/gitlab/gitlab.rb</span><br><span class="line"><span class="meta">#</span><span class="bash"> xxx为修改后的ip</span></span><br><span class="line">external_url 'http://xxx'</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h3 id="2-修改gitlab-yml中的host"><a href="#2-修改gitlab-yml中的host" class="headerlink" title="2.修改gitlab.yml中的host"></a>2.修改gitlab.yml中的host</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /var/opt/gitlab/gitlab-rails/etc/gitlab.yml</span><br><span class="line"><span class="meta">#</span> xxx为修改后的ip</span><br><span class="line">host: xxx</span><br></pre></td></tr></table></figure>
+<h3 id="2-修改gitlab-yml中的host"><a href="#2-修改gitlab-yml中的host" class="headerlink" title="2.修改gitlab.yml中的host"></a>2.修改gitlab.yml中的host</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /var/opt/gitlab/gitlab-rails/etc/gitlab.yml</span><br><span class="line"><span class="meta">#</span><span class="bash"> xxx为修改后的ip</span></span><br><span class="line">host: xxx</span><br></pre></td></tr></table></figure>
 <h3 id="3-重启gitlab服务"><a href="#3-重启gitlab服务" class="headerlink" title="3.重启gitlab服务"></a>3.重启gitlab服务</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gitlab-ctl restart</span><br></pre></td></tr></table></figure>
 <h2 id="二-github切换ip后本地改动"><a href="#二-github切换ip后本地改动" class="headerlink" title="二 github切换ip后本地改动"></a>二 github切换ip后本地改动</h2><h3 id="1-现象"><a href="#1-现象" class="headerlink" title="1.现象"></a>1.现象</h3><p><img src="https://www.github.com/Bored-AnnoYing/pic/raw/master/markdownxiaoshujiang/2018-8-20/1534748217060.png" alt="错误信息"></p>
 <h3 id="2-切换url"><a href="#2-切换url" class="headerlink" title="2.切换url"></a>2.切换url</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote set-url origin git@172.21.7.11:HairRobot/micro-services/haier-robot-maintenance.git</span><br></pre></td></tr></table></figure>
@@ -445,6 +445,18 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">公式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Tutorial</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
@@ -461,27 +473,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">公式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Tutorial</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">RESTful</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RabbitMQ</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -497,7 +489,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RabbitMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gitlab</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -509,10 +513,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gitlab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JDK</a>
               </li>
              
@@ -521,15 +521,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">DNS</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Windows2008R2</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -546,6 +546,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">配置文件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">pom</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -566,10 +570,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">配置</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pom</a>
               </li>
              
               <li class="article-tag-list-item">

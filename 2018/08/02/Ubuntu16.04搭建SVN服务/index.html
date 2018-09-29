@@ -175,12 +175,12 @@
 </blockquote>
 <h2 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a>一、安装</h2><h3 id="直接使用命令进行安装"><a href="#直接使用命令进行安装" class="headerlink" title="直接使用命令进行安装"></a>直接使用命令进行安装</h3><a id="more"></a>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install subversion</span><br></pre></td></tr></table></figure>
-<h2 id="二、配置"><a href="#二、配置" class="headerlink" title="二、配置"></a>二、配置</h2><h3 id="1-在home下创建一个svn文件夹"><a href="#1-在home下创建一个svn文件夹" class="headerlink" title="1.在home下创建一个svn文件夹"></a>1.在home下创建一个svn文件夹</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir  /home/svn</span><br><span class="line"><span class="meta">#</span> 第一次搭建没有赋予权限，客户端访问服务器被拒绝</span><br><span class="line">sudo chmod -R 777 /home/svn/</span><br></pre></td></tr></table></figure>
+<h2 id="二、配置"><a href="#二、配置" class="headerlink" title="二、配置"></a>二、配置</h2><h3 id="1-在home下创建一个svn文件夹"><a href="#1-在home下创建一个svn文件夹" class="headerlink" title="1.在home下创建一个svn文件夹"></a>1.在home下创建一个svn文件夹</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir  /home/svn</span><br><span class="line"><span class="meta">#</span><span class="bash"> 第一次搭建没有赋予权限，客户端访问服务器被拒绝</span></span><br><span class="line">sudo chmod -R 777 /home/svn/</span><br></pre></td></tr></table></figure>
 <h3 id="2-创建仓库"><a href="#2-创建仓库" class="headerlink" title="2.创建仓库"></a>2.创建仓库</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /home/svn/HairRobot</span><br><span class="line">sudo svnadmin create /home/svn/HairRobot</span><br></pre></td></tr></table></figure>
 <p>进入到仓库中使用ls命令查看<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /home/svn/HairRobot</span><br><span class="line">ls</span><br></pre></td></tr></table></figure></p>
 <p><img src="https://www.github.com/Bored-AnnoYing/pic/raw/master/markdownxiaoshujiang/2018-9-25/1537884202624.png" alt="HairRobot"></p>
 <h3 id="3-为了便于管理，将所有版本库的密码和权限设置在同一个文件下面，操作步骤如下"><a href="#3-为了便于管理，将所有版本库的密码和权限设置在同一个文件下面，操作步骤如下" class="headerlink" title="3.为了便于管理，将所有版本库的密码和权限设置在同一个文件下面，操作步骤如下"></a>3.为了便于管理，将所有版本库的密码和权限设置在同一个文件下面，操作步骤如下</h3><p>取出HairRobot下面conf文件夹下的authz和passwd两个文件到svn根目录下面<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /home/svn/HairRobot/conf/authz /home/svn/authz</span><br><span class="line">sudo cp /home/svn/HairRobot/conf/passwd /home/svn/passwd</span><br></pre></td></tr></table></figure></p>
-<h3 id="4-修改HairRobot仓库库目录conf文件夹下面的svnserve-conf文件"><a href="#4-修改HairRobot仓库库目录conf文件夹下面的svnserve-conf文件" class="headerlink" title="4.修改HairRobot仓库库目录conf文件夹下面的svnserve.conf文件"></a>4.修改HairRobot仓库库目录conf文件夹下面的svnserve.conf文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cd /home/svn/HairRobot/conf</span><br><span class="line">sudo vi svnserve.conf</span><br><span class="line">[general]</span><br><span class="line"><span class="meta">#</span>匿名用户不可读</span><br><span class="line">anon-access = none</span><br><span class="line"><span class="meta">#</span>权限用户可写</span><br><span class="line">auth-access = write</span><br><span class="line"><span class="meta">#</span>密码文件为passwd</span><br><span class="line">password-db = ../../passwd</span><br><span class="line"><span class="meta">#</span>权限文件为authz</span><br><span class="line">authz-db = ../../authz</span><br></pre></td></tr></table></figure>
+<h3 id="4-修改HairRobot仓库库目录conf文件夹下面的svnserve-conf文件"><a href="#4-修改HairRobot仓库库目录conf文件夹下面的svnserve-conf文件" class="headerlink" title="4.修改HairRobot仓库库目录conf文件夹下面的svnserve.conf文件"></a>4.修改HairRobot仓库库目录conf文件夹下面的svnserve.conf文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cd /home/svn/HairRobot/conf</span><br><span class="line">sudo vi svnserve.conf</span><br><span class="line">[general]</span><br><span class="line"><span class="meta">#</span><span class="bash">匿名用户不可读</span></span><br><span class="line">anon-access = none</span><br><span class="line"><span class="meta">#</span><span class="bash">权限用户可写</span></span><br><span class="line">auth-access = write</span><br><span class="line"><span class="meta">#</span><span class="bash">密码文件为passwd</span></span><br><span class="line">password-db = ../../passwd</span><br><span class="line"><span class="meta">#</span><span class="bash">权限文件为authz</span></span><br><span class="line">authz-db = ../../authz</span><br></pre></td></tr></table></figure>
 <p><code>password-db = ../../passwd，authz-db = ../../authz</code>代表相对路径而非绝对路径</p>
 <p><img src="https://www.github.com/Bored-AnnoYing/pic/raw/master/markdownxiaoshujiang/2018-9-25/1537884242459.png" alt="svnserve.conf"></p>
 <h3 id="5-添加角色（密码数据库）"><a href="#5-添加角色（密码数据库）" class="headerlink" title="5.添加角色（密码数据库）"></a>5.添加角色（密码数据库）</h3><p>打开svn目录下的passwd文件，创建方法是在[user]下面添加 username = passwd，记得“=”前后的空格<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /home/svn</span><br><span class="line">sudo vi passwd</span><br></pre></td></tr></table></figure></p>
@@ -199,7 +199,7 @@
 <p>停止服务<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">killall svnserve</span><br></pre></td></tr></table></figure></p>
 <h3 id="8-检查"><a href="#8-检查" class="headerlink" title="8.检查"></a>8.检查</h3><p><code>netstat -an | grep 3690</code>可以检查服务是否启动<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">netstat -an | grep 3690</span><br><span class="line">tcp        0      0 0.0.0.0:3690            0.0.0.0:*               LISTEN</span><br></pre></td></tr></table></figure></p>
 <h2 id="三、自启动"><a href="#三、自启动" class="headerlink" title="三、自启动"></a>三、自启动</h2><h3 id="1-在-etc-init-d目录建立一个脚本文件svnd-sh"><a href="#1-在-etc-init-d目录建立一个脚本文件svnd-sh" class="headerlink" title="1.在/etc/init.d目录建立一个脚本文件svnd.sh"></a>1.在/etc/init.d目录建立一个脚本文件svnd.sh</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/init.d</span><br><span class="line">sudo touch svnd.sh</span><br><span class="line">sudo chmod +x svnd.sh</span><br><span class="line">sudo vi svnd.sh</span><br></pre></td></tr></table></figure>
-<h3 id="2-svnd-sh文件中添加如下内容"><a href="#2-svnd-sh文件中添加如下内容" class="headerlink" title="2.svnd.sh文件中添加如下内容"></a>2.svnd.sh文件中添加如下内容</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"><span class="meta">#</span>## BEGIN INIT INFO</span><br><span class="line"><span class="meta">#</span> Provides:          bbzhh.com</span><br><span class="line"><span class="meta">#</span> Required-Start:    $local_fs $network</span><br><span class="line"><span class="meta">#</span> Required-Stop:     $local_fs</span><br><span class="line"><span class="meta">#</span> Default-Start:     2 3 4 5</span><br><span class="line"><span class="meta">#</span> Default-Stop:      0 1 6</span><br><span class="line"><span class="meta">#</span> Short-Description: tomcat service</span><br><span class="line"><span class="meta">#</span> Description:       tomcat service daemon</span><br><span class="line"><span class="meta">#</span>## END INIT INFO</span><br><span class="line"><span class="meta">#</span>svnserve startup</span><br><span class="line">svnserve -d -r /home/svn</span><br></pre></td></tr></table></figure>
+<h3 id="2-svnd-sh文件中添加如下内容"><a href="#2-svnd-sh文件中添加如下内容" class="headerlink" title="2.svnd.sh文件中添加如下内容"></a>2.svnd.sh文件中添加如下内容</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">## BEGIN INIT INFO</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Provides:          bbzhh.com</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Required-Start:    <span class="variable">$local_fs</span> <span class="variable">$network</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Required-Stop:     <span class="variable">$local_fs</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Default-Start:     2 3 4 5</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Default-Stop:      0 1 6</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Short-Description: tomcat service</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Description:       tomcat service daemon</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">## END INIT INFO</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash">svnserve startup</span></span><br><span class="line">svnserve -d -r /home/svn</span><br></pre></td></tr></table></figure>
 <p>ubuntu 16.04中一定要加上以下LSB信息，不然放入启动脚本的时候会报错无法开机启动</p>
 <p><img src="https://www.github.com/Bored-AnnoYing/pic/raw/master/markdownxiaoshujiang/2018-9-25/1537884308558.png" alt="LSB"></p>
 <h3 id="3-更新修改权限"><a href="#3-更新修改权限" class="headerlink" title="3.更新修改权限"></a>3.更新修改权限</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update-rc.d svnd.sh defaults</span><br></pre></td></tr></table></figure>
@@ -477,6 +477,18 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">公式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Tutorial</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
@@ -493,27 +505,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">公式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Tutorial</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">RESTful</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RabbitMQ</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -529,7 +521,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RabbitMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gitlab</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -541,10 +545,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gitlab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JDK</a>
               </li>
              
@@ -553,15 +553,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">DNS</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Windows2008R2</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -578,6 +578,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">配置文件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">pom</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -598,10 +602,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">配置</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pom</a>
               </li>
              
               <li class="article-tag-list-item">

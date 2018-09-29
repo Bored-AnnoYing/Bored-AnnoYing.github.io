@@ -190,12 +190,12 @@
 <h3 id="9-如果得到类似下面的结果，则说明GitLab运行正常"><a href="#9-如果得到类似下面的结果，则说明GitLab运行正常" class="headerlink" title="9.如果得到类似下面的结果，则说明GitLab运行正常"></a>9.如果得到类似下面的结果，则说明GitLab运行正常</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">run: gitlab-workhorse: (pid 1148) 884s; run: log: (pid 1132) 884s</span><br><span class="line">run: logrotate: (pid 1150) 884s; run: log: (pid 1131) 884s</span><br><span class="line">run: nginx: (pid 1144) 884s; run: log: (pid 1129) 884s</span><br><span class="line">run: postgresql: (pid 1147) 884s; run: log: (pid 1130) 884s</span><br><span class="line">run: redis: (pid 1146) 884s; run: log: (pid 1133) 884s</span><br><span class="line">run: sidekiq: (pid 1145) 884s; run: log: (pid 1128) 884s</span><br><span class="line">run: unicorn: (pid 1149) 885s; run: log: (pid 1134) 885s</span><br></pre></td></tr></table></figure>
 <h3 id="10-在浏览器地址栏中输入：http-127-0-0-1，即可访问GitLab的Web页面"><a href="#10-在浏览器地址栏中输入：http-127-0-0-1，即可访问GitLab的Web页面" class="headerlink" title="10.在浏览器地址栏中输入：http://127.0.0.1，即可访问GitLab的Web页面"></a>10.在浏览器地址栏中输入：<a href="http://127.0.0.1，即可访问GitLab的Web页面" target="_blank" rel="noopener">http://127.0.0.1，即可访问GitLab的Web页面</a></h3><p><img src="./images/1533108800458.png" alt="设置root账号密码"></p>
 <h2 id="汉化"><a href="#汉化" class="headerlink" title="汉化"></a>汉化</h2><h3 id="1-在仓库中创建gitlab-cn文件夹"><a href="#1-在仓库中创建gitlab-cn文件夹" class="headerlink" title="1.在仓库中创建gitlab_cn文件夹"></a>1.在仓库中创建<code>gitlab_cn</code>文件夹</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /var/opt/gitlab/git-data/repositories/</span><br><span class="line">mkdir gitlab_cn</span><br><span class="line">cd gitlab_cn</span><br></pre></td></tr></table></figure>
-<h3 id="2-克隆gitlab仓库到本地。-xhang项目-比较新，所以在这拉取xhang项目"><a href="#2-克隆gitlab仓库到本地。-xhang项目-比较新，所以在这拉取xhang项目" class="headerlink" title="2.克隆gitlab仓库到本地。 xhang项目 比较新，所以在这拉取xhang项目"></a>2.克隆gitlab仓库到本地。 xhang项目 比较新，所以在这拉取xhang项目</h3><p><a href="https://gitlab.com/larryli/gitlab" target="_blank" rel="noopener">larryli项目：</a><a href="https://gitlab.com/larryli/gitlab" target="_blank" rel="noopener">https://gitlab.com/larryli/gitlab</a><br><a href="https://gitlab.com/xhang/gitlab" target="_blank" rel="noopener">xhang项目：</a><a href="https://gitlab.com/xhang/gitlab" target="_blank" rel="noopener">https://gitlab.com/xhang/gitlab</a><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 克隆 GitLab.com 仓库</span><br><span class="line">git clone https://gitlab.com/larryli/gitlab.git</span><br><span class="line">＃或 Gitcafe.com 镜像，速度更快</span><br><span class="line">git clone https://gitcafe.com/larryli/gitlab.git</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> xhang项目</span><br><span class="line">git clone https://gitlab.com/xhang/gitlab.git</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-克隆gitlab仓库到本地。-xhang项目-比较新，所以在这拉取xhang项目"><a href="#2-克隆gitlab仓库到本地。-xhang项目-比较新，所以在这拉取xhang项目" class="headerlink" title="2.克隆gitlab仓库到本地。 xhang项目 比较新，所以在这拉取xhang项目"></a>2.克隆gitlab仓库到本地。 xhang项目 比较新，所以在这拉取xhang项目</h3><p><a href="https://gitlab.com/larryli/gitlab" target="_blank" rel="noopener">larryli项目：</a><a href="https://gitlab.com/larryli/gitlab" target="_blank" rel="noopener">https://gitlab.com/larryli/gitlab</a><br><a href="https://gitlab.com/xhang/gitlab" target="_blank" rel="noopener">xhang项目：</a><a href="https://gitlab.com/xhang/gitlab" target="_blank" rel="noopener">https://gitlab.com/xhang/gitlab</a><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 克隆 GitLab.com 仓库</span></span><br><span class="line">git clone https://gitlab.com/larryli/gitlab.git</span><br><span class="line">＃或 Gitcafe.com 镜像，速度更快</span><br><span class="line">git clone https://gitcafe.com/larryli/gitlab.git</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> xhang项目</span></span><br><span class="line">git clone https://gitlab.com/xhang/gitlab.git</span><br></pre></td></tr></table></figure></p>
 <p>如果已有此项目，则更新：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch</span><br></pre></td></tr></table></figure></p>
 <h3 id="3-确定Gitlab安装版本"><a href="#3-确定Gitlab安装版本" class="headerlink" title="3.确定Gitlab安装版本"></a>3.确定Gitlab安装版本</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /opt/gitlab/embedded/service/gitlab-rails/VERSION</span><br></pre></td></tr></table></figure>
 <p><img src="./images/1533181922727.png" alt="Gitlab版本"></p>
-<h3 id="4-生成汉化补丁"><a href="#4-生成汉化补丁" class="headerlink" title="4.生成汉化补丁"></a>4.生成汉化补丁</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 进入克隆仓库得到的gitlab目录</span><br><span class="line">cd gitlab</span><br><span class="line"><span class="meta">#</span> 查看tag版本，选择合适的汉化版本</span><br><span class="line">git tag</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 对比不同，这里比较的是tag，v11.1.2为英文原版，v11.1.2-zh为汉化版本。diff结果是汉化补丁。</span><br><span class="line">git diff v11.1.2..v11.1.2-zh &gt; /tmp/11.1.2.diff</span><br></pre></td></tr></table></figure>
-<h3 id="5-打完补丁后启动就可以了"><a href="#5-打完补丁后启动就可以了" class="headerlink" title="5.打完补丁后启动就可以了"></a>5.打完补丁后启动就可以了</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 停止gitlab</span><br><span class="line">gitlab-ctl stop</span><br><span class="line"><span class="meta">#</span> 应用汉化补丁</span><br><span class="line">cd /opt/gitlab/embedded/service</span><br><span class="line"><span class="meta">#</span> 记得备份</span><br><span class="line">cp -r gitlab-rails/ gitlab-rails-bak/</span><br><span class="line">cd gitlab-rails</span><br><span class="line">git apply /tmp/9.2.6.diff</span><br><span class="line"><span class="meta">#</span> 启动gitlab</span><br><span class="line">gitlab-ctl start</span><br></pre></td></tr></table></figure>
+<h3 id="4-生成汉化补丁"><a href="#4-生成汉化补丁" class="headerlink" title="4.生成汉化补丁"></a>4.生成汉化补丁</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 进入克隆仓库得到的gitlab目录</span></span><br><span class="line">cd gitlab</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看tag版本，选择合适的汉化版本</span></span><br><span class="line">git tag</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 对比不同，这里比较的是tag，v11.1.2为英文原版，v11.1.2-zh为汉化版本。diff结果是汉化补丁。</span></span><br><span class="line">git diff v11.1.2..v11.1.2-zh &gt; /tmp/11.1.2.diff</span><br></pre></td></tr></table></figure>
+<h3 id="5-打完补丁后启动就可以了"><a href="#5-打完补丁后启动就可以了" class="headerlink" title="5.打完补丁后启动就可以了"></a>5.打完补丁后启动就可以了</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 停止gitlab</span></span><br><span class="line">gitlab-ctl stop</span><br><span class="line"><span class="meta">#</span><span class="bash"> 应用汉化补丁</span></span><br><span class="line">cd /opt/gitlab/embedded/service</span><br><span class="line"><span class="meta">#</span><span class="bash"> 记得备份</span></span><br><span class="line">cp -r gitlab-rails/ gitlab-rails-bak/</span><br><span class="line">cd gitlab-rails</span><br><span class="line">git apply /tmp/9.2.6.diff</span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动gitlab</span></span><br><span class="line">gitlab-ctl start</span><br></pre></td></tr></table></figure>
 <h3 id="可能遇到的问题"><a href="#可能遇到的问题" class="headerlink" title="可能遇到的问题"></a>可能遇到的问题</h3><p><img src="./images/1533185214840.png" alt="enter description here"></p>
 <p>解决方法：<a href="https://gitlab.com/xhang/gitlab/uploads/23e8414e53eefde0968e960b24a6f631/_%E5%8E%9F%E5%88%9B_Gitlab10.8.0%E5%88%86%E6%94%AF%E6%B1%89%E5%8C%96_Omnibus%E7%89%88_.png" target="_blank" rel="noopener">https://gitlab.com/xhang/gitlab/uploads/23e8414e53eefde0968e960b24a6f631/_%E5%8E%9F%E5%88%9B_Gitlab10.8.0%E5%88%86%E6%94%AF%E6%B1%89%E5%8C%96_Omnibus%E7%89%88_.png</a><br><a href="https://gitlab.com/xhang/gitlab/issues/63" target="_blank" rel="noopener">10.8.1版本补丁错误 ：</a><a href="https://gitlab.com/xhang/gitlab/issues/63" target="_blank" rel="noopener">https://gitlab.com/xhang/gitlab/issues/63</a></p>
 <h4 id="1-首先删除之前生成的补丁"><a href="#1-首先删除之前生成的补丁" class="headerlink" title="1.首先删除之前生成的补丁"></a>1.首先删除之前生成的补丁</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm /tmp/11.1.2.diff</span><br></pre></td></tr></table></figure>
@@ -210,18 +210,18 @@
 <p><img src="./images/1533108903666.png" alt="gitlab.rb"></p>
 <p>每次修改/etc/gitlab/gitlab.rb，都要运行以下命令，让配置生效<br>设置完成后重新加载启动：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gitlab-ctl reconfigure</span><br><span class="line">gitlab-ctl restart</span><br></pre></td></tr></table></figure></p>
 <h3 id="2-备份"><a href="#2-备份" class="headerlink" title="2.备份"></a>2.备份</h3><p>参考文档：<br><a href="https://www.jianshu.com/p/7a0d6917e009?mType=Group" target="_blank" rel="noopener">快速安装 GitLab 并汉化</a><br><a href="https://blog.csdn.net/ouyang_peng/article/details/77070977" target="_blank" rel="noopener">git学习——&gt; Gitlab如何进行备份恢复与迁移？</a></p>
-<h4 id="1-备份配置文件"><a href="#1-备份配置文件" class="headerlink" title="1.备份配置文件"></a>1.备份配置文件</h4><p>配置文件含密码等敏感信息，不要和数据备份文件放在一起。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> sh -c 'umask 0077; tar -cf $(date "+etc-gitlab-%s.tar") -C /etc/gitlab'</span><br></pre></td></tr></table></figure></p>
-<h4 id="2-备份gitlab"><a href="#2-备份gitlab" class="headerlink" title="2.备份gitlab"></a>2.备份gitlab</h4><p>默认数据备份目录是<code>/var/opt/gitlab/backups</code>，手动创建备份文件<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> Omnibus 方式安装使用以下命令备份</span><br><span class="line">sudo gitlab-rake gitlab:backup:create</span><br></pre></td></tr></table></figure></p>
-<h4 id="3-定时备份gitlab"><a href="#3-定时备份gitlab" class="headerlink" title="3.定时备份gitlab"></a>3.定时备份gitlab</h4><p>方法1.在命令行输入: crontab -e 然后添加相应的任务，wq存盘退出。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>输入命令crontab -e</span><br><span class="line">sudo crontab -e  </span><br><span class="line"><span class="meta">#</span>输入相应的任务</span><br><span class="line">0 2 * * * /opt/gitlab/bin/gitlab-rake gitlab:backup:create CRON=1</span><br></pre></td></tr></table></figure></p>
-<p>方法2、直接编辑/etc/crontab 文件，即vi /etc/crontab，然后添加相应的任务<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>编辑 /etc/crontab</span><br><span class="line">vi /etc/crontab</span><br><span class="line"><span class="meta">#</span> edited by ouyang 2017-8-11 添加定时任务，每天凌晨两点，执行gitlab备份</span><br><span class="line">0  2    * * *   root    /opt/gitlab/bin/gitlab-rake gitlab:backup:create CRON=1</span><br></pre></td></tr></table></figure></p>
-<p>编写完 /etc/crontab 文件之后，需要重新启动cron服务<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>重新加载cron配置文件</span><br><span class="line">sudo /usr/sbin/service cron reload</span><br><span class="line"><span class="meta">#</span>重启cron服务</span><br><span class="line">sudo /usr/sbin/service cron restart</span><br></pre></td></tr></table></figure></p>
-<h4 id="4-设置配置文件"><a href="#4-设置配置文件" class="headerlink" title="4.设置配置文件"></a>4.设置配置文件</h4><p>修改<code>/etc/gitlab/gitlab.rb</code>文件<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 备份保留天数为3个月（即90天，这里是7776000秒）</span><br><span class="line">gitlab_rails['backup_keep_time'] = 7776000</span><br><span class="line"><span class="meta">#</span> 默认备份权限</span><br><span class="line"><span class="meta">#</span> gitlab_rails['backup_archive_permissions'] = 0644</span><br><span class="line"><span class="meta">#</span> 默认本分路径</span><br><span class="line"><span class="meta">#</span> gitlab_rails['backup_path'] = "/var/opt/gitlab/backups"</span><br></pre></td></tr></table></figure></p>
+<h4 id="1-备份配置文件"><a href="#1-备份配置文件" class="headerlink" title="1.备份配置文件"></a>1.备份配置文件</h4><p>配置文件含密码等敏感信息，不要和数据备份文件放在一起。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> sh -c <span class="string">'umask 0077; tar -cf $(date "+etc-gitlab-%s.tar") -C /etc/gitlab'</span></span></span><br></pre></td></tr></table></figure></p>
+<h4 id="2-备份gitlab"><a href="#2-备份gitlab" class="headerlink" title="2.备份gitlab"></a>2.备份gitlab</h4><p>默认数据备份目录是<code>/var/opt/gitlab/backups</code>，手动创建备份文件<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Omnibus 方式安装使用以下命令备份</span></span><br><span class="line">sudo gitlab-rake gitlab:backup:create</span><br></pre></td></tr></table></figure></p>
+<h4 id="3-定时备份gitlab"><a href="#3-定时备份gitlab" class="headerlink" title="3.定时备份gitlab"></a>3.定时备份gitlab</h4><p>方法1.在命令行输入: crontab -e 然后添加相应的任务，wq存盘退出。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">输入命令crontab -e</span></span><br><span class="line">sudo crontab -e  </span><br><span class="line"><span class="meta">#</span><span class="bash">输入相应的任务</span></span><br><span class="line">0 2 * * * /opt/gitlab/bin/gitlab-rake gitlab:backup:create CRON=1</span><br></pre></td></tr></table></figure></p>
+<p>方法2、直接编辑/etc/crontab 文件，即vi /etc/crontab，然后添加相应的任务<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">编辑 /etc/crontab</span></span><br><span class="line">vi /etc/crontab</span><br><span class="line"><span class="meta">#</span><span class="bash"> edited by ouyang 2017-8-11 添加定时任务，每天凌晨两点，执行gitlab备份</span></span><br><span class="line">0  2    * * *   root    /opt/gitlab/bin/gitlab-rake gitlab:backup:create CRON=1</span><br></pre></td></tr></table></figure></p>
+<p>编写完 /etc/crontab 文件之后，需要重新启动cron服务<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">重新加载cron配置文件</span></span><br><span class="line">sudo /usr/sbin/service cron reload</span><br><span class="line"><span class="meta">#</span><span class="bash">重启cron服务</span></span><br><span class="line">sudo /usr/sbin/service cron restart</span><br></pre></td></tr></table></figure></p>
+<h4 id="4-设置配置文件"><a href="#4-设置配置文件" class="headerlink" title="4.设置配置文件"></a>4.设置配置文件</h4><p>修改<code>/etc/gitlab/gitlab.rb</code>文件<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 备份保留天数为3个月（即90天，这里是7776000秒）</span></span><br><span class="line">gitlab_rails['backup_keep_time'] = 7776000</span><br><span class="line"><span class="meta">#</span><span class="bash"> 默认备份权限</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> gitlab_rails[<span class="string">'backup_archive_permissions'</span>] = 0644</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 默认本分路径</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> gitlab_rails[<span class="string">'backup_path'</span>] = <span class="string">"/var/opt/gitlab/backups"</span></span></span><br></pre></td></tr></table></figure></p>
 <p>修改完成之后使用下面命令重载配置文件<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gitlab-ctl reconfigure</span><br></pre></td></tr></table></figure></p>
 <h3 id="3、恢复"><a href="#3、恢复" class="headerlink" title="3、恢复"></a>3、恢复</h3><blockquote>
 <p><strong>==确保备份文件所安装 GitLab 和当前要恢复的 GitLab 版本一致 #ff0000==</strong></p>
 </blockquote>
-<h4 id="1-复制数据文件，将备份文件权限修改为777，不然可能恢复的时候会出现权限不够，不能解压的问题"><a href="#1-复制数据文件，将备份文件权限修改为777，不然可能恢复的时候会出现权限不够，不能解压的问题" class="headerlink" title="1.复制数据文件，将备份文件权限修改为777，不然可能恢复的时候会出现权限不够，不能解压的问题"></a>1.复制数据文件，将备份文件权限修改为777，不然可能恢复的时候会出现权限不够，不能解压的问题</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 将数据备份文件拷贝至备份目录</span><br><span class="line">chmod 777 1502357536_2017_08_10_9.4.3_gitlab_backup.tar</span><br><span class="line">sudo cp 1393513186_gitlab_backup.tar /var/opt/gitlab/backups/</span><br></pre></td></tr></table></figure>
-<h4 id="2-执行命令停止相关数据连接服务"><a href="#2-执行命令停止相关数据连接服务" class="headerlink" title="2.执行命令停止相关数据连接服务"></a>2.执行命令停止相关数据连接服务</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 停止相关数据连接服务</span><br><span class="line">gitlab-ctl stop unicorn</span><br><span class="line">gitlab-ctl stop sidekiq</span><br></pre></td></tr></table></figure>
+<h4 id="1-复制数据文件，将备份文件权限修改为777，不然可能恢复的时候会出现权限不够，不能解压的问题"><a href="#1-复制数据文件，将备份文件权限修改为777，不然可能恢复的时候会出现权限不够，不能解压的问题" class="headerlink" title="1.复制数据文件，将备份文件权限修改为777，不然可能恢复的时候会出现权限不够，不能解压的问题"></a>1.复制数据文件，将备份文件权限修改为777，不然可能恢复的时候会出现权限不够，不能解压的问题</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 将数据备份文件拷贝至备份目录</span></span><br><span class="line">chmod 777 1502357536_2017_08_10_9.4.3_gitlab_backup.tar</span><br><span class="line">sudo cp 1393513186_gitlab_backup.tar /var/opt/gitlab/backups/</span><br></pre></td></tr></table></figure>
+<h4 id="2-执行命令停止相关数据连接服务"><a href="#2-执行命令停止相关数据连接服务" class="headerlink" title="2.执行命令停止相关数据连接服务"></a>2.执行命令停止相关数据连接服务</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 停止相关数据连接服务</span></span><br><span class="line">gitlab-ctl stop unicorn</span><br><span class="line">gitlab-ctl stop sidekiq</span><br></pre></td></tr></table></figure>
 <h4 id="3-执行命令从备份文件中恢复Gitlab"><a href="#3-执行命令从备份文件中恢复Gitlab" class="headerlink" title="3.执行命令从备份文件中恢复Gitlab"></a>3.执行命令从备份文件中恢复Gitlab</h4><p><code>*_gitlab_backup.tar</code>*表示备份文件编号<br>例如：<code>1502357536_2017_08_10_9.4.3_gitlab_backup.tar</code> 文件编号为<code>1502357536_2017_08_10_9.4.3</code></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gitlab-rake gitlab:backup:restore BACKUP=备份文件编号</span><br></pre></td></tr></table></figure>
 <h4 id="4-启动Gitlab"><a href="#4-启动Gitlab" class="headerlink" title="4.启动Gitlab"></a>4.启动Gitlab</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gitlab-ctl start</span><br></pre></td></tr></table></figure>
@@ -499,6 +499,18 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">公式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Tutorial</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Git</a>
               </li>
              
@@ -515,27 +527,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">公式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Tutorial</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">RESTful</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RabbitMQ</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -551,7 +543,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RabbitMQ</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">gitlab</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -563,10 +567,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">gitlab</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">JDK</a>
               </li>
              
@@ -575,15 +575,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">DNS</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Windows2008R2</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -600,6 +600,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">配置文件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">pom</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -620,10 +624,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">配置</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pom</a>
               </li>
              
               <li class="article-tag-list-item">

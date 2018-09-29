@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//Bored-AnnoYing.github.io">
-  <title>Archives: 2017 | Hot Sauce的博客</title>
+  <title>Git 配置多个SSH-Key | Hot Sauce的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Hot Sauce">
-<meta name="keywords" content="js,javascript,开发者,程序猿,程序,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,撸码,搬砖,码农">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hot Sauce的博客">
-<meta property="og:url" content="//Bored-AnnoYing.github.io/archives/2017/index.html">
+  <meta name="description" content="windows用户打开Git Bash来执行ssh-keygen命令。  配置Git用户名和邮箱12$ git config --global user.name &quot;用户名&quot;$ git config --global user.email &quot;youremail@xxx.com&quot;">
+<meta name="keywords" content="Git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git 配置多个SSH-Key">
+<meta property="og:url" content="//Bored-AnnoYing.github.io/2018/09/30/Git 配置多个SSH-Key/index.html">
 <meta property="og:site_name" content="Hot Sauce的博客">
-<meta property="og:description" content="Hot Sauce">
+<meta property="og:description" content="windows用户打开Git Bash来执行ssh-keygen命令。  配置Git用户名和邮箱12$ git config --global user.name &quot;用户名&quot;$ git config --global user.email &quot;youremail@xxx.com&quot;">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-29T16:04:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hot Sauce的博客">
-<meta name="twitter:description" content="Hot Sauce">
+<meta name="twitter:title" content="Git 配置多个SSH-Key">
+<meta name="twitter:description" content="windows用户打开Git Bash来执行ssh-keygen命令。  配置Git用户名和邮箱12$ git config --global user.name &quot;用户名&quot;$ git config --global user.email &quot;youremail@xxx.com&quot;">
   
     <link rel="alternative" href="/atom.xml" title="Hot Sauce的博客" type="application/atom+xml">
   
@@ -144,144 +145,197 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Git 配置多个SSH-Key" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Git 配置多个SSH-Key
+    </h1>
+  
+
+        
+        <a href="/2018/09/30/Git 配置多个SSH-Key/" class="archive-article-date">
+  	<time datetime="2018-09-29T16:01:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-30</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>windows用户打开Git Bash来执行ssh-keygen命令。</p>
+</blockquote>
+<h2 id="配置Git用户名和邮箱"><a href="#配置Git用户名和邮箱" class="headerlink" title="配置Git用户名和邮箱"></a>配置Git用户名和邮箱</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"用户名"</span></span><br><span class="line">$ git config --global user.email <span class="string">"youremail@xxx.com"</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="生成SSH-key"><a href="#生成SSH-key" class="headerlink" title="生成SSH key"></a>生成SSH key</h2><p>生成SSH key，并指定文件名，避免覆盖原有的默认<code>id_rsa</code>文件。<br>生成多个不懂的SSH key只需指定不懂的名字就可以，如下中的<code>github_rsa</code>和之前默认生成的<code>id_rsa</code>区分开。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 一个公司用的</span></span><br><span class="line">$ ssh-keygen -t rsa -C <span class="string">"youremail@yourcompany.com"</span> -f ~/.ssh/id-rsa</span><br><span class="line"></span><br><span class="line"><span class="comment"># 一个github用的</span></span><br><span class="line">$ ssh-keygen -t rsa -C <span class="string">"youremail@your.com"</span> -f ~/.ssh/github-rsa</span><br></pre></td></tr></table></figure></p>
+<h2 id="添加新的SSH-key"><a href="#添加新的SSH-key" class="headerlink" title="添加新的SSH key"></a>添加新的SSH key</h2><p>默认SSH只会读取id_rsa，所以为了让SSH识别新的私钥，需要将其添加到SSH agen<br>使用命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-add ~/.ssh/id_rsa</span><br><span class="line">$ ssh-add ~/.ssh/github_rsa</span><br></pre></td></tr></table></figure></p>
+<p>如果报错：<code>Could not open a connection to your authentication agent.无法连接到ssh agent</code>可执行命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-agent bash</span><br></pre></td></tr></table></figure></p>
+<p>然后在运行<code>ssh-add</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 可以通过 ssh-add -l 来确私钥列表</span></span><br><span class="line">$ ssh-add -l</span><br><span class="line"><span class="comment"># 可以通过 ssh-add -D 来清空私钥列表</span></span><br><span class="line">$ ssh-add -D</span><br></pre></td></tr></table></figure>
+<h2 id="配置config文件"><a href="#配置config文件" class="headerlink" title="配置config文件"></a>配置config文件</h2><p>在<code>~/.ssh</code>下添加config文件，如果已经存在，就直接打开修改。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ touch ~/.ssh/config   // 创建</span><br></pre></td></tr></table></figure></p>
+<p>添加如下内容<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># gitlab</span></span><br><span class="line">    <span class="string">Host</span> <span class="string">git.iboxpay.com</span></span><br><span class="line">    <span class="string">HostName</span> <span class="string">git.iboxpay.com</span></span><br><span class="line">    <span class="string">PreferredAuthentications</span> <span class="string">publickey</span></span><br><span class="line">    <span class="string">IdentityFile</span> <span class="string">~/.ssh/id_rsa</span></span><br><span class="line">    <span class="string">User</span> <span class="string">anotherUser</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># github</span></span><br><span class="line">    <span class="string">Host</span> <span class="string">github.com</span></span><br><span class="line">    <span class="string">HostName</span> <span class="string">github.com</span></span><br><span class="line">    <span class="string">PreferredAuthentications</span> <span class="string">publickey</span></span><br><span class="line">    <span class="string">IdentityFile</span> <span class="string">~/.ssh/github_rsa</span></span><br><span class="line">    <span class="string">User</span> <span class="string">anotherUser</span></span><br></pre></td></tr></table></figure></p>
+<p>每个账号单独配置一个Host，每个Host要取一个别名，每个Host主要配置HostName和IdentityFile两个属性即可。</p>
+<ul>
+<li>Host的名字可以取为自己喜欢的名字，不过这个会影响git相关命令，例如：<br>Host mygithub 这样定义的话，命令如下，即git@后面紧跟的名字改为mygithub<br>git clone git@mygithub:PopFisher/AndroidRotateAnim.git</li>
+<li>HostName  这个是真实的域名地址</li>
+<li>IdentityFile 这里是id_rsa的地址，也就是指定私钥的路径</li>
+<li>PreferredAuthentications   配置登录时用什么权限认证–可设为publickey,password publickey,keyboard-interactive等</li>
+<li>User 配置使用用户名</li>
+</ul>
+<h2 id="测试SSH-key"><a href="#测试SSH-key" class="headerlink" title="测试SSH key"></a>测试SSH key</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@git.com  // 或者其他域名地址</span><br></pre></td></tr></table></figure>
+<p>输出：<br>Hi XXX! You’ve successfully authenticated, but GitHub does not provide shell access.</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/28/创建 IP安全策略来屏蔽端口/" class="archive-article-date">
-  	<time datetime="2017-09-28T07:37:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/28/创建 IP安全策略来屏蔽端口/">创建 IP安全策略来屏蔽端口</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">IP安全策略</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">屏蔽端口</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Git</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://Bored-AnnoYing.github.io/2018/09/30/Git 配置多个SSH-Key/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/20/Windows2008R2配置DNS服务器/" class="archive-article-date">
-  	<time datetime="2017-09-20T05:17:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-20</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/09/29/URI, URL, URN/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">URI, URL, URN</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/20/Windows2008R2配置DNS服务器/">Windows2008R2配置DNS服务器</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DNS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Windows2008R2</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#配置Git用户名和邮箱"><span class="toc-number">1.</span> <span class="toc-text">配置Git用户名和邮箱</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成SSH-key"><span class="toc-number">2.</span> <span class="toc-text">生成SSH key</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加新的SSH-key"><span class="toc-number">3.</span> <span class="toc-text">添加新的SSH key</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置config文件"><span class="toc-number">4.</span> <span class="toc-text">配置config文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试SSH-key"><span class="toc-number">5.</span> <span class="toc-text">测试SSH key</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/08/pom.xml详解/" class="archive-article-date">
-  	<time datetime="2017-05-08T07:29:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-08</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/08/pom.xml详解/">pom.xml详解</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">pom</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  //id: "//Bored-AnnoYing.github.io/2018/09/30/Git 配置多个SSH-Key/",
+  id: 'Sun Sep 30 2018 00:01:45 GMT+0800',
+  owner: 'Bored-AnnoYing',
+  repo: 'Bored-AnnoYing.github.io',
+  oauth: {
+    client_id: '6690f6828e048bd0285a',
+    client_secret: 'e7176109f86ae06b346e164054c40329cedf7103',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
 
 
           </div>
@@ -308,8 +362,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
